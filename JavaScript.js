@@ -1,15 +1,4 @@
-﻿var Location = [48.85341, 2.3488]; // default Paris
-var LeLieu = "";
-var IconeURL = "";
-var MeteoTitre = "";
-var MeteoDetail = "";
-var Temperature = { value: 12, unit: "°C", display: "12°C" };
-var Pression = "";
-var Humidite = "";
-
-
-
-$("#search").change(function() {
+﻿$("#search").change(function() {
     // console.log("Search change");
     // $("#Gros_titre").text($("#search").val());
     var api = 'https://fr.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=';
@@ -30,7 +19,7 @@ $("#search").change(function() {
             for (var x in data.query.pages) {
                 var Card_ID = "Card_" + data.query.pages[x].pageid;
                 var Thumb_ID = "Thumb_" + data.query.pages[x].pageid;
-                var Card = "<div id='" + Card_ID + "' class='section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone'><div id='" + Thumb_ID + "' class='section__circle-container__circle mdl-color--primary' style='background:url(images/photo.png) no-repeat 0px 0px;'></div></div><div class='section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone'>";
+                var Card = "<div id='" + Card_ID + "' class='section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone'><div id='" + Thumb_ID + "' class='section__circle-container__circle mdl-color--primary' style='background:url(http://icons.iconarchive.com/icons/icons8/windows-8/64/City-No-Camera-icon.png) no-repeat 0px 0px;'></div></div><div class='section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone'>";
                 Card = Card + "<h5>" + data.query.pages[x].title + "</h5>"
                 Card = Card + data.query.pages[x].extract + "</br> <a href='" + page + data.query.pages[x].pageid + "' target='_blank'>En savoir plus ...</a></br></div>";
                 $("#Results_List").append(Card);
